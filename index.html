@@ -1,69 +1,242 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kuki-Monster-here - мое первое детище</title>
+    <title>Crimson Sanctum - Eternal Nocturne</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap');
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: #333;
-            line-height: 1.6;
+            font-family: 'MedievalSharp', cursive;
+            background: 
+                radial-gradient(circle at 20% 50%, #1a0000 0%, #0a0000 40%, #000000 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.03"><rect width="100" height="100" fill="none" stroke="%23ff0000" stroke-width="2"/></svg>');
+            color: #c0a0a0;
+            line-height: 1.8;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             min-height: 100vh;
             text-align: center;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            position: relative;
+            overflow-x: hidden;
         }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(139, 0, 0, 0.1) 2px,
+                    rgba(139, 0, 0, 0.1) 4px
+                );
+            pointer-events: none;
+            z-index: -1;
+        }
+
         .container {
             max-width: 800px;
             margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: rgba(10, 0, 0, 0.85);
+            padding: 50px;
+            border: 1px solid #500000;
+            border-radius: 0;
+            box-shadow: 
+                0 0 50px rgba(139, 0, 0, 0.5),
+                inset 0 0 100px rgba(100, 0, 0, 0.3);
+            position: relative;
+            backdrop-filter: blur(5px);
         }
+
+        .container::before {
+            content: '⚰️';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3em;
+            filter: drop-shadow(0 0 10px #ff0000);
+        }
+
         h1 {
+            font-family: 'Cinzel Decorative', serif;
+            color: #ff4d4d;
+            margin-bottom: 30px;
+            font-size: 3.5em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px #ff0000,
+                0 0 40px #800000;
+            border-bottom: 2px solid #500000;
+            padding-bottom: 20px;
+        }
+
+        .ancient-symbol {
+            font-size: 5em;
+            margin: 30px 0;
+            filter: drop-shadow(0 0 15px #ff0000);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .vampire-text {
+            font-size: 1.3em;
+            margin: 25px 0;
+            color: #d8b8b8;
+            text-align: justify;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+
+        .blood-ink {
             color: #ff6b6b;
-            margin-bottom: 10px;
-        }
-        .monster {
-            font-size: 4em;
-            margin: 20px 0;
-        }
-        .btn {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 30px;
-            margin: 15px;
             font-weight: bold;
-            transition: all 0.3s;
+            text-shadow: 0 0 10px #ff0000;
         }
-        .btn:hover {
-            background: #ff5252;
-            transform: translateY(-2px);
-        }
-        .confetti {
-            font-size: 2em;
-            line-height: 1;
+
+        .ancient-cursive {
+            font-style: italic;
+            color: #c0a0a0;
+            border-left: 3px solid #500000;
+            padding-left: 20px;
             margin: 20px 0;
+        }
+
+        .sanguine-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #500000, #800000);
+            color: #fff0f0;
+            padding: 15px 40px;
+            text-decoration: none;
+            border: 2px solid #300000;
+            margin: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+        }
+
+        .sanguine-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .sanguine-btn:hover {
+            background: linear-gradient(45deg, #800000, #a00000);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 30px rgba(255, 0, 0, 0.7),
+                0 0 60px rgba(139, 0, 0, 0.3);
+        }
+
+        .sanguine-btn:hover::before {
+            left: 100%;
+        }
+
+        .cryptic-border {
+            border: 1px solid #400000;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            background: rgba(20, 0, 0, 0.5);
+        }
+
+        .cryptic-border::after {
+            content: '†';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a0000;
+            padding: 0 20px;
+            color: #800000;
+            font-size: 1.5em;
+        }
+
+        .blood-drops {
+            font-size: 2em;
+            letter-spacing: 10px;
+            margin: 30px 0;
+            color: #800000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .shadow-text {
+            text-shadow: 
+                2px 2px 4px #000000,
+                0 0 10px rgba(139, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="confetti">🎉 🎊 🎉 🎊</div>
-        <h1>WEEL DOONE</h1>
-        <div class="monster">👾</div>
-        <p>HELLO THERE <strong>kuki-Monster-here</strong>!</p>
-        <p>I am new here</p>
-        <p>что ж погнали.</p>
+        <div class="blood-drops">🩸 🩸 🩸</div>
         
-        <a href="https://github.com/kuki-Monster-here" class="btn">Посмотреть мой GitHub</a>
-        <div class="confetti">🎊 🎉 🎊 🎉</div>
+        <h1 class="shadow-text">Crimson Sanctum</h1>
+        
+        <div class="ancient-symbol">🦇</div>
+        
+        <p class="vampire-text">
+            <span class="blood-ink">Hark, mortal</span>. Thou hast stumbled upon the <span class="blood-ink">Eternal Nocturne</span>, 
+            where shadows whisper secrets older than thy civilization. 
+            This digital crypt holds echoes of <span class="blood-ink">ancient bloodlines</span> and forgotten curses.
+        </p>
+
+        <div class="cryptic-border">
+            <p class="ancient-cursive">
+                "Beware the sanguine moon, for it illuminates what should remain hidden. 
+                The night holds more truths than the day dares reveal."
+            </p>
+        </div>
+
+        <p class="vampire-text">
+            I am <span class="blood-ink">kuki-Monster-here</span>, chronicler of the <span class="blood-ink">Nocturnal Arts</span>. 
+            This sanctum serves as my <span class="blood-ink">digital reliquary</span> - a collection of dark wonders 
+            and crimson knowledge from across the centuries.
+        </p>
+
+        <p class="vampire-text shadow-text">
+            The web may be thy realm by day, but by night... by night it becomes <span class="blood-ink">our domain</span>.
+        </p>
+        
+        <a href="https://github.com/kuki-Monster-here" class="sanguine-btn">Enter the Crypt</a>
+        
+        <div class="blood-drops">🩸 🩸 🩸</div>
     </div>
+
+    <script>
+        // Добавляем случайные мерцающие эффекты
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            setInterval(() => {
+                const randomGlow = Math.random() * 50 + 10;
+                container.style.boxShadow = 
+                    `0 0 ${randomGlow}px rgba(139, 0, 0, 0.5),
+                     inset 0 0 100px rgba(100, 0, 0, 0.3)`;
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
