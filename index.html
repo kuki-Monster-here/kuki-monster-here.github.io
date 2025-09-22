@@ -3,239 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Sanctum - Eternal Nocturne</title>
+    <title>Dark Sanctum</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600&display=swap');
         
         body {
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Playfair Display', serif;
             background: 
-                radial-gradient(circle at 20% 50%, #1a0000 0%, #0a0000 40%, #000000 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.03"><rect width="100" height="100" fill="none" stroke="%23ff0000" stroke-width="2"/></svg>');
-            color: #c0a0a0;
-            line-height: 1.8;
+                linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)),
+                url('https://balthazar.club/uploads/posts/2023-01/1674371894_balthazar-club-p-tsepi-estetika-oboi-6.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #c0c0c0;
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-            position: relative;
+            line-height: 1.6;
+            cursor: crosshair;
             overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(139, 0, 0, 0.1) 2px,
-                    rgba(139, 0, 0, 0.1) 4px
-                );
-            pointer-events: none;
-            z-index: -1;
         }
 
         .container {
             max-width: 800px;
-            margin: 40px auto;
-            background: rgba(10, 0, 0, 0.85);
-            padding: 50px;
-            border: 1px solid #500000;
-            border-radius: 0;
-            box-shadow: 
-                0 0 50px rgba(139, 0, 0, 0.5),
-                inset 0 0 100px rgba(100, 0, 0, 0.3);
+            margin: 0 auto;
+            padding: 40px 20px;
             position: relative;
-            backdrop-filter: blur(5px);
         }
 
-        .container::before {
-            content: '⚰️';
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            margin-bottom: 50px;
+            position: relative;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        header::before, header::after, header .cross-top-left, header .cross-top-right {
+            content: '†';
             position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3em;
-            filter: drop-shadow(0 0 10px #ff0000);
+            font-size: 2.5em;
+            color: #8b0000;
+            opacity: 0.6;
+            animation: crossGlow 4s infinite alternate;
+            text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+        }
+
+        header::before {
+            top: 10px;
+            left: 10px;
+        }
+
+        header::after {
+            top: 10px;
+            right: 10px;
+        }
+
+        header .cross-top-left {
+            top: 10px;
+            left: 50px;
+            animation-delay: 1s;
+        }
+
+        header .cross-top-right {
+            top: 10px;
+            right: 50px;
+            animation-delay: 2s;
+        }
+
+        @keyframes crossGlow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.1); }
         }
 
         h1 {
-            font-family: 'Cinzel Decorative', serif;
-            color: #ff4d4d;
-            margin-bottom: 30px;
+            font-family: 'Cinzel', serif;
             font-size: 3.5em;
+            color: transparent;
+            background: linear-gradient(45deg, #8b0000, #ff0000, #ff6b6b, #ff0000, #8b0000);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            margin: 0;
             letter-spacing: 3px;
             text-transform: uppercase;
-            text-shadow: 
-                0 0 20px #ff0000,
-                0 0 40px #800000;
-            border-bottom: 2px solid #500000;
-            padding-bottom: 20px;
+            font-weight: 400;
+            animation: shimmer 3s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
         }
 
-        .ancient-symbol {
-            font-size: 5em;
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: transparent;
+            background: linear-gradient(45deg, #8b0000, #ff6b6b, #ff8a8a, #ff6b6b, #8b0000);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            margin-top: 10px;
+            font-style: italic;
+            animation: shimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+        }
+
+        .content {
+            background: rgba(30, 30, 30, 0.85);
+            padding: 50px;
             margin: 30px 0;
-            filter: drop-shadow(0 0 15px #ff0000);
-            animation: pulse 3s infinite;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid #8b0000;
+            border-radius: 5px;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
+        .content::after, .content .cross-bottom-left, .content .cross-bottom-right, .content .cross-top-left, .content .cross-top-right {
+            content: '✝';
+            position: absolute;
+            font-size: 2em;
+            color: #666666;
+            opacity: 0.5;
+            animation: crossFloat 6s infinite ease-in-out;
+            text-shadow: 0 0 5px rgba(139, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .content::after {
+            bottom: -20px;
+            right: -20px;
+        }
+
+        .content .cross-bottom-left {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 2s;
+        }
+
+        .content .cross-bottom-right {
+            top: -20px;
+            right: -20px;
+            animation-delay: 4s;
+        }
+
+        .content .cross-top-left {
+            top: -20px;
+            left: -20px;
+            animation-delay: 1s;
+        }
+
+        @keyframes crossFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-8px) rotate(5deg); opacity: 0.7; }
         }
 
         .vampire-text {
-            font-size: 1.3em;
-            margin: 25px 0;
-            color: #d8b8b8;
-            text-align: justify;
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-        }
-
-        .blood-ink {
-            color: #ff6b6b;
-            font-weight: bold;
-            text-shadow: 0 0 10px #ff0000;
-        }
-
-        .ancient-cursive {
-            font-style: italic;
-            color: #c0a0a0;
-            border-left: 3px solid #500000;
-            padding-left: 20px;
-            margin: 20px 0;
-        }
-
-        .sanguine-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #500000, #800000);
-            color: #fff0f0;
-            padding: 15px 40px;
-            text-decoration: none;
-            border: 2px solid #300000;
-            margin: 20px;
-            font-weight: bold;
             font-size: 1.2em;
-            letter-spacing: 2px;
+            margin: 30px 0;
+            text-align: justify;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .vampire-text:hover {
+            background: rgba(139, 0, 0, 0.1);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+        .accent {
+            color: #ff8a8a;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .vampire-text:hover .accent {
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            color: #ffd700;
+        }
+
+        .blood-accent {
+            color: #ff6b6b;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .vampire-text:hover .blood-accent {
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            color: #ff0000;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .navigation::after, .navigation .cross-nav-left, .navigation .cross-nav-right {
+            content: '†';
+            position: absolute;
+            font-size: 2em;
+            color: #8b0000;
+            opacity: 0.6;
+            animation: crossPulse 3s infinite alternate;
+        }
+
+        .navigation::after {
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navigation .cross-nav-left {
+            top: -15px;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        .navigation .cross-nav-right {
+            bottom: -15px;
+            left: 20%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes crossPulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        .nav-btn {
+            padding: 15px 30px;
+            background: transparent;
+            border: 1px solid #8b0000;
+            color: #ff8a8a;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            transition: all 0.3s;
             text-transform: uppercase;
-            transition: all 0.4s;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+            z-index: 1;
         }
 
-        .sanguine-btn::before {
+        .nav-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
             transition: 0.5s;
         }
 
-        .sanguine-btn:hover {
-            background: linear-gradient(45deg, #800000, #a00000);
-            transform: translateY(-3px);
-            box-shadow: 
-                0 0 30px rgba(255, 0, 0, 0.7),
-                0 0 60px rgba(139, 0, 0, 0.3);
+        .nav-btn:hover {
+            background: #8b0000;
+            color: #1a1a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
         }
 
-        .sanguine-btn:hover::before {
+        .nav-btn:hover::before {
             left: 100%;
         }
 
-        .cryptic-border {
-            border: 1px solid #400000;
-            padding: 30px;
+        .quote {
+            font-style: italic;
+            text-align: center;
             margin: 40px 0;
+            padding: 20px;
+            border-left: 3px solid #8b0000;
+            background: rgba(139, 0, 0, 0.1);
+            font-size: 1.1em;
+            transition: all 0.3s ease;
             position: relative;
-            background: rgba(20, 0, 0, 0.5);
         }
 
-        .cryptic-border::after {
-            content: '†';
+        .quote::before {
+            content: '✞';
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #0a0000;
-            padding: 0 20px;
-            color: #800000;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 1.5em;
+            color: #8b0000;
+            opacity: 0.6;
         }
 
-        .blood-drops {
-            font-size: 2em;
-            letter-spacing: 10px;
-            margin: 30px 0;
-            color: #800000;
-            text-shadow: 0 0 10px #ff0000;
+        .quote:hover {
+            background: rgba(139, 0, 0, 0.2);
+            box-shadow: 0 0 25px rgba(139, 0, 0, 0.3);
+            transform: scale(1.02);
         }
 
-        .shadow-text {
-            text-shadow: 
-                2px 2px 4px #000000,
-                0 0 10px rgba(139, 0, 0, 0.5);
+        body:hover {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ff0000, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: screen;
+            animation: cursorPulse 2s infinite;
+        }
+
+        @keyframes cursorPulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .custom-cursor {
+                display: none;
+            }
+            
+            body:hover {
+                cursor: default;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="blood-drops">🩸 🩸 🩸</div>
-        
-        <h1 class="shadow-text">Crimson Sanctum</h1>
-        
-        <div class="ancient-symbol">🦇</div>
-        
-        <p class="vampire-text">
-            <span class="blood-ink">Hark, mortal</span>. Thou hast stumbled upon the <span class="blood-ink">Eternal Nocturne</span>, 
-            where shadows whisper secrets older than thy civilization. 
-            This digital crypt holds echoes of <span class="blood-ink">ancient bloodlines</span> and forgotten curses.
-        </p>
+        <header>
+            <div class="cross-top-left">†</div>
+            <div class="cross-top-right">†</div>
+            <h1>Dark Sanctum</h1>
+            <div class="subtitle">Chronicles of the Eternal Night</div>
+        </header>
 
-        <div class="cryptic-border">
-            <p class="ancient-cursive">
-                "Beware the sanguine moon, for it illuminates what should remain hidden. 
-                 The night holds more truths than the day dares reveal."
+        <div class="content">
+            <div class="cross-bottom-left">✝</div>
+            <div class="cross-bottom-right">✝</div>
+            <div class="cross-top-left">✝</div>
+            <div class="cross-top-right">✝</div>
+            
+            <p class="vampire-text">
+                Welcome to the <span class="accent">Sanctuary of Shadows</span>, where time flows differently, 
+                and <span class="blood-accent">ancient secrets</span> await their moment.
             </p>
+
+            <div class="quote">
+                "The night reveals what the day diligently conceals. 
+                In darkness, we discover our true essence."
+            </div>
+
+            <p class="vampire-text">
+                I am <span class="blood-accent">Dark Child</span>, keeper of knowledge that the world would rather forget. 
+                This place is created for those who seek <span class="accent">truth beyond the mundane</span>.
+            </p>
+
+            <p class="vampire-text">
+                Here you will find chronicles of <span class="blood-accent">ancient bloodlines</span>, research into 
+                <span class="accent">forbidden arts</span>, and testimonies of beings whose existence 
+                challenges conventional understanding.
+            </p>
+
+            <div class="navigation">
+                <div class="cross-nav-left">†</div>
+                <div class="cross-nav-right">†</div>
+                <a href="#" class="nav-btn">Enter the Crypt</a>
+                <a href="#" class="nav-btn">Ancient Texts</a>
+                <a href="#" class="nav-btn">Bloodline Archives</a>
+            </div>
         </div>
-
-        <p class="vampire-text">
-            I am <span class="blood-ink">DARK CHILD</span>, chronicler of the <span class="blood-ink">Nocturnal Arts</span>. 
-            This sanctum serves as my <span class="blood-ink">digital reliquary</span> - a collection of dark wonders 
-            and crimson knowledge from across the centuries.
-        </p>
-
-        <p class="vampire-text shadow-text">
-            The web may be thy realm by day, but by night... 
-            by night it becomes <span class="blood-ink">our domain</span>.
-        </p>
-        
-        <a href="https://avatars.mds.yandex.net/i?id=c8512930d937bc12995281ade2948e7f_l-5236607-images-thumbs&n=13" class="sanguine-btn">Enter the Crypt</a>
-        
-        <div class="blood-drops">🩸 🩸 🩸</div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.container');
-            setInterval(() => {
-                const randomGlow = Math.random() * 50 + 10;
-                container.style.boxShadow = 
-                    `0 0 ${randomGlow}px rgba(139, 0, 0, 0.5),
-                     inset 0 0 100px rgba(100, 0, 0, 0.3)`;
-            }, 2000);
+        // Кастомный курсор
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
         });
     </script>
 </body>
